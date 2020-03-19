@@ -48,6 +48,13 @@ describe ConvertBetweenKanjiAndNumber do
   end
 
   describe ".convert" do
+    it 'return 二十 of 20' do
+      number = ConvertBetweenKanjiAndNumber.convert(20)
+      expect(number).to eq("二十")
+    end
+  end
+
+  describe ".convert" do
     it 'return 二十三 of 23' do
       number = ConvertBetweenKanjiAndNumber.convert(23)
       expect(number).to eq("二十三")
@@ -79,6 +86,20 @@ describe ConvertBetweenKanjiAndNumber do
     it 'return 百十 of 110' do
       number = ConvertBetweenKanjiAndNumber.convert(110)
       expect(number).to eq("百十")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 九百 of 900' do
+      number = ConvertBetweenKanjiAndNumber.convert(900)
+      expect(number).to eq("九百")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 九百九十九 of 999' do
+      number = ConvertBetweenKanjiAndNumber.convert(999)
+      expect(number).to eq("九百九十九")
     end
   end
   

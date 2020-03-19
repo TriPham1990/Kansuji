@@ -25,7 +25,7 @@ class ConvertBetweenKanjiAndNumber
       surplus = number % divisor
       number = (number - surplus) / divisor
       if number != 1
-        BASICKANJI[number] + BASICKANJI[divisor] + checkNumber(surplus, divisor / 10)
+        surplus == 0 ? BASICKANJI[number] + BASICKANJI[divisor] : BASICKANJI[number] + BASICKANJI[divisor] + checkNumber(surplus, divisor / 10)
       else
         surplus == 0 ? BASICKANJI[divisor] : BASICKANJI[divisor] + checkNumber(surplus, divisor / 10)
       end
