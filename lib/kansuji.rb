@@ -11,15 +11,21 @@ class ConvertBetweenKanjiAndNumber
   def self.convert(number)
     if number <= 10
       BASICKANJI[number]
-    else
-      surplus = number % 10
-      number = (number - surplus) / 10
-      if number != 1
-        BASICKANJI[number] + BASICKANJI[10] + BASICKANJI[surplus]
-      else
-        BASICKANJI[10] + BASICKANJI[surplus]
-      end
+    elsif number < 100
+      checkNumber(number, 10)
+    elsif number < 1000
+      checkNumber(number, 1000)
     end
-  end      
+  end 
+
+  def self.checkNumber(number, divisor)
+    surplus = number % divisor
+    number = (number - surplus) / divisor
+    if number != 1
+      BASICKANJI[number] + BASICKANJI[divisor] + BASICKANJI[surplus]
+    else
+      number == 0 ? BASICKANJI[divisor] : BASICKANJI[divisor] + BASICKANJI[surplus]
+    end
+  end
 
 end
