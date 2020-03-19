@@ -102,5 +102,12 @@ describe ConvertBetweenKanjiAndNumber do
       expect(number).to eq("九百九十九")
     end
   end
+
+  describe ".convertKanjiToNumber" do
+    it 'return 999 of 九百九十九' do
+      number = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("九百九十九")
+      expect(number).to eq(999)
+    end
+  end
   
 end

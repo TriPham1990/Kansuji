@@ -1,5 +1,3 @@
-#TODO: implement
-
 class ConvertBetweenKanjiAndNumber
 
   BASICKANJI = {
@@ -16,7 +14,7 @@ class ConvertBetweenKanjiAndNumber
     elsif number < 1000
       checkNumber(number, 100)
     end
-  end 
+  end
 
   def self.checkNumber(number, divisor)
     if number <= 10
@@ -30,6 +28,13 @@ class ConvertBetweenKanjiAndNumber
         surplus == 0 ? BASICKANJI[divisor] : BASICKANJI[divisor] + checkNumber(surplus, divisor / 10)
       end
     end
+  end
+
+
+  def self.convertKanjiToNumber(kanji)
+    kanjis = {}
+    (0..999).each {|i| kanjis[i] = convert(i)}
+    kanjis.invert[kanji]
   end
 
 end
