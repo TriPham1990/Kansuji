@@ -144,5 +144,12 @@ describe ConvertBetweenKanjiAndNumber do
       expect(number).to eq(9999)
     end
   end
+
+  describe ".convert" do
+    it 'return 一万 of 10000' do
+      number = ConvertBetweenKanjiAndNumber.convert(10000)
+      expect(number).to eq("一万")
+    end
+  end
   
 end
