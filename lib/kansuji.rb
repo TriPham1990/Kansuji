@@ -9,12 +9,17 @@ class ConvertBetweenKanjiAndNumber
   }
 
   def self.convert(number)
-    BASICKANJI[number]
-    # if number == 0
-    #   "〇"
-    # else
-    #   "一"
-    # end
+    if number <= 10
+      BASICKANJI[number]
+    else
+      surplus = number % 10
+      number = (number - surplus) / 10
+      if number != 1
+        BASICKANJI[number] + BASICKANJI[10] + BASICKANJI[surplus]
+      else
+        BASICKANJI[10] + BASICKANJI[surplus]
+      end
+    end
   end      
 
 end

@@ -46,5 +46,19 @@ describe ConvertBetweenKanjiAndNumber do
       expect(number).to eq("十一")
     end
   end
+
+  describe ".convert" do
+    it 'return 二十三 of 23' do
+      number = ConvertBetweenKanjiAndNumber.convert(23)
+      expect(number).to eq("二十三")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 九十九 of 99' do
+      number = ConvertBetweenKanjiAndNumber.convert(99)
+      expect(number).to eq("九十九")
+    end
+  end
   
 end
