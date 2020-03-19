@@ -14,17 +14,21 @@ class ConvertBetweenKanjiAndNumber
     elsif number < 100
       checkNumber(number, 10)
     elsif number < 1000
-      checkNumber(number, 1000)
+      checkNumber(number, 100)
     end
   end 
 
   def self.checkNumber(number, divisor)
-    surplus = number % divisor
-    number = (number - surplus) / divisor
-    if number != 1
-      BASICKANJI[number] + BASICKANJI[divisor] + BASICKANJI[surplus]
+    if number <= 10
+      BASICKANJI[number]
     else
-      number == 0 ? BASICKANJI[divisor] : BASICKANJI[divisor] + BASICKANJI[surplus]
+      surplus = number % divisor
+      number = (number - surplus) / divisor
+      if number != 1
+        BASICKANJI[number] + BASICKANJI[divisor] + checkNumber(surplus, divisor / 10)
+      else
+        surplus == 0 ? BASICKANJI[divisor] : BASICKANJI[divisor] + checkNumber(surplus, divisor / 10)
+      end
     end
   end
 

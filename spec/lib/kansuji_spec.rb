@@ -60,5 +60,26 @@ describe ConvertBetweenKanjiAndNumber do
       expect(number).to eq("九十九")
     end
   end
+
+  describe ".convert" do
+    it 'return 百 of 100' do
+      number = ConvertBetweenKanjiAndNumber.convert(100)
+      expect(number).to eq("百")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 百一 of 101' do
+      number = ConvertBetweenKanjiAndNumber.convert(101)
+      expect(number).to eq("百一")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 百十 of 110' do
+      number = ConvertBetweenKanjiAndNumber.convert(110)
+      expect(number).to eq("百十")
+    end
+  end
   
 end
