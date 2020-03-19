@@ -103,24 +103,10 @@ describe ConvertBetweenKanjiAndNumber do
     end
   end
 
-  describe ".convertKanjiToNumber" do
-    it 'return 999 of 九百九十九' do
-      number = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("九百九十九")
-      expect(number).to eq(999)
-    end
-  end
-
   describe ".convert" do
     it 'return 千 of 1000' do
       number = ConvertBetweenKanjiAndNumber.convert(1000)
       expect(number).to eq("千")
-    end
-  end
-
-  describe ".convertKanjiToNumber" do
-    it 'return 1000 of 千' do
-      number = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("千")
-      expect(number).to eq(1000)
     end
   end
 
@@ -138,17 +124,38 @@ describe ConvertBetweenKanjiAndNumber do
     end
   end
 
-  describe ".convertKanjiToNumber" do
-    it 'return 9999 of 九千九百九十九' do
-      number = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("九千九百九十九")
-      expect(number).to eq(9999)
+  describe ".convert" do
+    it 'return 万 of 10000' do
+      number = ConvertBetweenKanjiAndNumber.convert(10000)
+      expect(number).to eq("万")
     end
   end
 
   describe ".convert" do
-    it 'return 一万 of 10000' do
-      number = ConvertBetweenKanjiAndNumber.convert(10000)
-      expect(number).to eq("一万")
+    it 'return 万一 of 10001' do
+      number = ConvertBetweenKanjiAndNumber.convert(10001)
+      expect(number).to eq("万一")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 二万一 of 20001' do
+      number = ConvertBetweenKanjiAndNumber.convert(20001)
+      expect(number).to eq("二万一")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 九万九千九百九十九 of 99999' do
+      number = ConvertBetweenKanjiAndNumber.convert(99999)
+      expect(number).to eq("九万九千九百九十九")
+    end
+  end
+
+  describe ".convert" do
+    it 'return 十万 of 100000' do
+      number = ConvertBetweenKanjiAndNumber.convert(100000)
+      expect(number).to eq("十万")
     end
   end
   
