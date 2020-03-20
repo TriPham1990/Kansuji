@@ -152,11 +152,46 @@ describe ConvertBetweenKanjiAndNumber do
     end
   end
 
+  # describe ".convert" do
+  #   it 'return 十万 of 100000' do
+  #     number = ConvertBetweenKanjiAndNumber.convert(100000)
+  #     expect(number).to eq("十万")
+  #   end
+  # end
+
+  # describe ".convert" do
+  #   it 'return 九億九千九百九十九万九千九百九十九 of 999999999' do
+  #     number = ConvertBetweenKanjiAndNumber.convert(999999999)
+  #     expect(number).to eq("九億九千九百九十九万九千九百九十九")
+  #   end
+  # end
+
+  # describe ".convert" do
+  #   it 'return 八億五千四百九十四万七千六百二十五 of 854947625' do
+  #     number = ConvertBetweenKanjiAndNumber.convert(854947625)
+  #     expect(number).to eq("八億五千四百九十四万七千六百二十五")
+  #   end
+  # end
+
   describe ".convert" do
-    it 'return 十万 of 100000' do
-      number = ConvertBetweenKanjiAndNumber.convert(100000)
-      expect(number).to eq("十万")
+    it 'return 五千四百九十四万七千六百二十五 of 54947625' do
+      number = ConvertBetweenKanjiAndNumber.convert(54947625)
+      expect(number).to eq("五千四百九十四万七千六百二十五")
     end
   end
+
+  describe ".convert" do
+    it 'return 四百九十四万七千六百二十五 of 4947625' do
+      number = ConvertBetweenKanjiAndNumber.convert(4947625)
+      expect(number).to eq("四百九十四万七千六百二十五")
+    end
+  end
+
+  # describe ".convertKanjiToNumber" do
+  #   it 'return 99999 of 九万九千九百九十九' do
+  #     number = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("九万九千九百九十九")
+  #     expect(number).to eq(99999)
+  #   end
+  # end
   
 end
