@@ -6,6 +6,10 @@ class ConvertBetweenKanjiAndNumber
                  10**32 => "溝", 10**36 => "澗", 10**40 => "正", 10**44 => "載", 10**48 => "極", 10**52 => "恒河沙",
                  10**56 => "阿僧祇", 10**60 => "那由他", 10**64 => "不可思議", 10**68 => "無量大数" }
 
+CHECKKANJI = { 10**68 => "無量大数", 10**64 => "不可思議", 10**60 => "那由他", 10**56 => "阿僧祇", 10**52 => "恒河沙",
+               10**48 => "極", 10**44 => "載", 10**40 => "正", 10**36 => "澗", 10**32 => "溝", 10**28 => "穣",
+               10**24 => "𥝱", 10**20 => "垓", 10**16 => "京", 10**12 => "兆", 10**8 => "億" ,10000 => "万", 1000 => "千", 100 => "百", 10 => "十"}
+
   BIGKANJI = { 10**52 => "恒河沙", 10**56 => "阿僧祇", 10**60 => "那由他", 10**64 => "不可思議", 10**68 => "無量大数" }
 
   def self.convert(number)
@@ -26,32 +30,34 @@ class ConvertBetweenKanjiAndNumber
   end
 
   def self.convertKanjiToNumber(string)
+
+    BASICKANJI.each do |key, value|
+      return key if string == value && BASICKANJI.invert[string] < 10
+    end
+
     arrayKanji = string.chars
+
+
     BIGKANJI.each do |key, value|
       if string.include?(value)
         firstIndex = string.index(value)
         (1...string.length).each {|i| arrayKanji[firstIndex] += arrayKanji.delete_at(firstIndex - 1 + check.length)}
       end
     end
-    
-    BASICKANJI.each do |key, value|
-      return key if string == value && BASICKANJI.invert[string] < 10
-    end
 
-    result = BASICKANJI.invert[arrayKanji[0]]
-    (0...arrayKanji.length).each do |index|
-      if BASICKANJI.invert[arrayKanji[index + 1]] < 10
-        arrayKanji.slice!(0, index + 1)
-        return result += convertKanjiToNumber(arrayKanji.join)
-      else
-        if BASICKANJI.invert[arrayKanji[index + 1]] > BASICKANJI.invert[arrayKanji[index]]
-          result *= BASICKANJI.invert[arrayKanji[index + 1]]
-        else
-          arrayKanji.slice!(0, index + 1)
-          return result += convertKanjiToNumber(arrayKanji.join)
-        end
+    CHECKKANJI.each do |key, value|
+      if arrayKanji.include?(value)
+        index = arrayKanji.index(value)
+        newArray = arrayKanji.slice!(0, index + 1)
+        return key + convertKanjiToNumber(arrayKanji.join) if newArray.length == 1
+        newArray.pop if newArray.length > 1
+        return convertKanjiToNumber(newArray.join) * key + convertKanjiToNumber(arrayKanji.join)
       end
     end
+    
+    
   end
 
 end
+
+puts ConvertBetweenKanjiAndNumber.convertKanjiToNumber("二十二")
