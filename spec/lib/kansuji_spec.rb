@@ -273,32 +273,46 @@ describe ConvertBetweenKanjiAndNumber do
     end
   end
 
-  # describe ".convertKanjiToNumber" do
-  #   it 'return 2112 of 二千百十二' do
-  #     kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("二千百十二")
-  #     expect(kanji).to eq(2112)
-  #   end
-  # end
+  describe ".convertKanjiToNumber" do
+    it 'return 2112 of 二千百十二' do
+      kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("二千百十二")
+      expect(kanji).to eq(2112)
+    end
+  end
 
-  # describe ".convertKanjiToNumber" do
-  #   it 'return 4124 of 四千百二十四' do
-  #     kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("四千百二十四")
-  #     expect(kanji).to eq(4124)
-  #   end
-  # end
+  describe ".convertKanjiToNumber" do
+    it 'return 4124 of 四千百二十四' do
+      kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("四千百二十四")
+      expect(kanji).to eq(4124)
+    end
+  end
 
-  # describe ".convertKanjiToNumber" do
-  #   it 'return 5124 of 五千百二十四' do
-  #     kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("五千百二十四")
-  #     expect(kanji).to eq(5124)
-  #   end
-  # end
+  describe ".convertKanjiToNumber" do
+    it 'return 5124 of 五千百二十四' do
+      kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("五千百二十四")
+      expect(kanji).to eq(5124)
+    end
+  end
 
-  # describe ".convertKanjiToNumber" do
-  #   it 'return 65124 of 六万五千百二十四' do
-  #     kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("六万五千百二十四")
-  #     expect(kanji).to eq(65124)
-  #   end
-  # end
+  describe ".convertKanjiToNumber" do
+    it 'return 65124 of 六万五千百二十四' do
+      kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("六万五千百二十四")
+      expect(kanji).to eq(65124)
+    end
+  end
+
+  describe ".convertKanjiToNumber" do
+    it 'return 222222222 of 二億二千二百二十二万二千二百二十二' do
+      kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("二億二千二百二十二万二千二百二十二")
+      expect(kanji).to eq(222222222)
+    end
+  end
+
+  describe ".convertKanjiToNumber" do
+    it 'return 326537347 of 三億二千六百五十三万七千三百四十七' do
+      kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("三億二千六百五十三万七千三百四十七")
+      expect(kanji).to eq(326537347)
+    end
+  end
 
 end
