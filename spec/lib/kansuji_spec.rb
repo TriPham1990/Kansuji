@@ -246,6 +246,13 @@ describe ConvertBetweenKanjiAndNumber do
   end
 
   describe ".convertKanjiToNumber" do
+    it 'return 10 of 十' do
+      kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("十")
+      expect(kanji).to eq(10)
+    end
+  end
+
+  describe ".convertKanjiToNumber" do
     it 'return 11 of 十一' do
       kanji = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("十一")
       expect(kanji).to eq(11)
@@ -315,4 +322,10 @@ describe ConvertBetweenKanjiAndNumber do
     end
   end
 
+  describe ".convertKanjiToNumber" do
+    it 'return 90000000000000 of 九十兆' do
+      number = ConvertBetweenKanjiAndNumber.convertKanjiToNumber("九十兆")
+      expect(number).to eq(90000000000000)
+    end
+  end
 end
